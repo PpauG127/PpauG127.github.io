@@ -157,13 +157,13 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;pa
     <div>
       <div class="recl"><span class="dot"></span>REC <span id="tc">00:00:00:00</span></div>
       <h1>Pau <em>Guilarte</em></h1>
-      <p class="role"><b data-t="r1">Video editor &amp; motion designer.</b> <span data-t="r2">Marketing student.</span></p>
+      <p class="role"><b data-t="r1">Video editor &amp; motion designer with 3 years of experience.</b> <span data-t="r2">Marketing student.</span></p>
     </div>
     <div class="tl" id="tl" aria-label="Timeline: drag the playhead"><svg id="tls"></svg><div class="ph" id="ph"></div><span class="tlhint" data-t="tlhint">Drag me</span></div>
   </section>
 
   <div class="t photo">
-    <img src="pau.jpg" alt="Pau Guilarte Martínez" width="1100" height="1375"><img class="col" src="pau_color.jpg" alt="" aria-hidden="true"><span class="hint" data-t="phint">Move to reveal colour</span>
+    <img src="pau.jpg" alt="Pau Guilarte Martínez" width="1100" height="1375">
     <div class="tag"><span class="dot"></span><span data-t="av">Available for projects</span></div>
   </div>
 
@@ -216,9 +216,9 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;pa
 <script>
 {
 const T={
-en:{r1:"Video editor & motion designer.",r2:"Marketing student.",av:"Available for projects",wL:"Works",wT:"Video & motion",soon:"Tap the podcast to watch",pod:"Podcast · Before / After",phint:"Move to reveal colour",tlhint:"Drag me",copy:"Copy email",copied:"Email copied",tb1:"Before / After",tb2:"Short · Anxiety",tb3:"Short · Stages",
+en:{r1:"Video editor & motion designer with 3 years of experience.",r2:"Marketing student.",av:"Available for projects",wL:"Works",wT:"Video & motion",soon:"Tap the podcast to watch",pod:"Podcast · Before / After",phint:"Move to reveal colour",tlhint:"Drag me",copy:"Copy email",copied:"Email copied",tb1:"Before / After",tb2:"Short · Anxiety",tb3:"Short · Stages",
 sL:"Tools I use",mL:"Digital marketing",mT:"Content that connects",cL:"Say hello",cT:"Let's work together",mB:"See my marketing portfolio",chips:["Social media","Content","Ads"]},
-es:{r1:"Editor de vídeo y motion designer.",r2:"Estudiante de marketing.",av:"Disponible para proyectos",wL:"Trabajos",wT:"Vídeo y motion",soon:"Toca el podcast para verlo",pod:"Podcast · Antes / Después",phint:"Pasa el ratón para ver el color",tlhint:"Arrástrame",copy:"Copiar email",copied:"Email copiado",tb1:"Antes / Después",tb2:"Short · Ansiedad",tb3:"Short · Etapas",
+es:{r1:"Editor de vídeo y motion designer con 3 años de experiencia.",r2:"Estudiante de marketing.",av:"Disponible para proyectos",wL:"Trabajos",wT:"Vídeo y motion",soon:"Toca el podcast para verlo",pod:"Podcast · Antes / Después",phint:"Pasa el ratón para ver el color",tlhint:"Arrástrame",copy:"Copiar email",copied:"Email copiado",tb1:"Antes / Después",tb2:"Short · Ansiedad",tb3:"Short · Etapas",
 sL:"Herramientas",mL:"Marketing digital",mT:"Contenido que conecta",cL:"Hablemos",cT:"Trabajemos juntos",mB:"Ver mi portfolio de marketing",chips:["Redes sociales","Contenido","Ads"]}
 };
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -265,10 +265,6 @@ if(fine){document.querySelectorAll(".grid>.t").forEach(el=>{
   el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;el.style.setProperty("--mx",x*100+"%");el.style.setProperty("--my",y*100+"%");if(!el.classList.contains("photo")||true)el.style.transform=`perspective(1000px) rotateX(${(.5-y)*4}deg) rotateY(${(x-.5)*5}deg)`;el.classList.add("hov")});
   el.addEventListener("pointerleave",()=>{el.style.transform="";el.classList.remove("hov")});});
 }
-const ph_=document.querySelector(".photo");
-ph_.addEventListener("pointermove",e=>{const r=ph_.getBoundingClientRect();ph_.style.setProperty("--px",(e.clientX-r.left)+"px");ph_.style.setProperty("--py",(e.clientY-r.top)+"px");ph_.style.setProperty("--r","125px");const h=ph_.querySelector(".hint");if(h)h.style.opacity=0});
-ph_.addEventListener("pointerleave",()=>ph_.style.setProperty("--r","0px"));
-ph_.addEventListener("click",()=>ph_.classList.toggle("full"));
 const toast=document.getElementById("toast");let tt_;const say=m=>{toast.textContent=m;toast.classList.add("on");clearTimeout(tt_);tt_=setTimeout(()=>toast.classList.remove("on"),1800)};
 document.getElementById("copyMail").addEventListener("click",async()=>{const L=document.documentElement.lang=="es"?"es":"en";try{await navigator.clipboard.writeText("pauguilarte12@gmail.com");say(T[L].copied)}catch(e){say("pauguilarte12@gmail.com")}});
 }
