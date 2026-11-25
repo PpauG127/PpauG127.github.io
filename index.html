@@ -228,12 +228,10 @@ function setLang(l){
   document.getElementById("chips").innerHTML=d.chips.map(c=>`<span>${esc(c)}</span>`).join("");
   document.getElementById("l-en").setAttribute("aria-pressed",l=="en");
   document.getElementById("l-es").setAttribute("aria-pressed",l=="es");
-  try{localStorage.setItem("pau-lang",l)}catch(e){}
 }
 document.getElementById("l-en").addEventListener("click",()=>setLang("en"));
 document.getElementById("l-es").addEventListener("click",()=>setLang("es"));
-let saved=null;try{saved=localStorage.getItem("pau-lang")}catch(e){}
-if(location.hash=="#es")saved="es";
+let saved=null;
 setLang(saved=="es"?"es":"en");
 const tl=document.getElementById("tl"),tls=document.getElementById("tls");
 const clips=[[0,.0,.18,"#3a3a3a"],[0,.18,.42,"#ff3b2f"],[0,.42,.6,"#4a4a4a"],[0,.6,.86,"#ff3b2f"],[0,.86,1,"#3a3a3a"],[1,.06,.38,"#9b6bff"],[1,.55,.8,"#3d7bff"]];
