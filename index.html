@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pau Guilarte Martínez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE personal brand, bold and visual, few words; dark mood fixed in both themes
+   IDEA a camera's record screen: the red REC dot is Pau's brand mark
+   PICTURE giant name tile with a red glow, his portrait, a showreel strip of two frames
+   COLOUR near-black ground, charcoal tiles, brand red #ff3b2f, colourful app tiles in the stack
+   TYPE Syne 800 for the name and titles, Inter for small text
+   LAYOUT laptop: 3 columns (name x2 | photo), (work x2 | stack), (marketing | contact x2); 720px: 2 columns; phone: 1 column */
+:root{color-scheme:dark;--bg:#0b0b0b;--ink:#f4f2ef;--soft:#a5a29d;--t1:#262626;--t2:#171717;--edge:#ffffff12;--red:#ff3b2f}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;color:var(--ink);font:15px/1.5 "Inter",system-ui,sans-serif;background:radial-gradient(120% 70% at 50% 0%,#3a3a3a,#111 50%,#0b0b0b 75%) fixed,#0b0b0b;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.frame{max-width:1280px;margin:clamp(10px,2vw,28px) auto;padding:clamp(8px,1vw,12px);border-radius:34px;background:linear-gradient(160deg,#cfcfcf,#555 30%,#262626 60%,#9a9a9a)}
+.inner{background:#0d0d0d;border-radius:26px;padding:clamp(8px,1vw,12px)}
+.grid{display:grid;gap:10px;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:minmax(460px,auto) minmax(300px,auto) minmax(250px,auto);grid-template-areas:"hero hero photo" "work work stack" "mkt contact contact"}
+.t{position:relative;border-radius:22px;background:linear-gradient(155deg,var(--t1),var(--t2));border:1px solid var(--edge);padding:24px;overflow:hidden;display:flex;flex-direction:column}
+.lab{color:var(--soft);font-size:14px;font-weight:500}
+h2{font:800 clamp(24px,2.4vw,32px)/1.05 "Syne",sans-serif;letter-spacing:-.02em;margin:6px 0 0}
+.dot{display:inline-block;width:.34em;height:.34em;border-radius:50%;background:var(--red);box-shadow:0 0 18px var(--red);animation:rec 1.6s steps(1) infinite}
+@keyframes rec{50%{opacity:.25}}
+
+.hero{grid-area:hero;gap:clamp(18px,2.4vw,30px);background:radial-gradient(70% 80% at 85% 20%,#ff3b2f55,transparent 60%),radial-gradient(60% 60% at 10% 100%,#ff3b2f22,transparent 70%),linear-gradient(155deg,#242424,#121212)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mark{font:800 26px/1 "Syne",sans-serif;letter-spacing:-.03em;display:flex;align-items:center;gap:6px}
+.mark .dot{width:12px;height:12px}
+.lang{display:flex;background:#00000055;border:1px solid #ffffff22;border-radius:999px;padding:3px}
+.lang button{border:0;background:none;color:var(--soft);min-width:44px;min-height:34px;border-radius:999px;cursor:pointer;font-size:13px;font-weight:600}
+.lang button[aria-pressed=true]{background:var(--ink);color:#111}
+.recl{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#ffd5d1;margin-bottom:10px;font-variant-numeric:tabular-nums}
+.recl .dot{width:9px;height:9px}
+h1{font:400 clamp(50px,7.6vw,118px)/.95 "Instrument Serif",Georgia,serif;letter-spacing:-.025em;margin:0;white-space:nowrap}
+h1 em{font-style:italic;background:linear-gradient(90deg,#fff 30%,#ffb3ad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{margin:18px 0 0;font-size:clamp(16px,1.5vw,19px);color:#dcd9d4}
+.role b{font-weight:600;color:var(--ink)}
+
+.tl{position:relative;margin-top:auto;height:clamp(120px,13vw,160px);border-radius:14px;background:#0000004d;border:1px solid #ffffff12;overflow:hidden}
+.tl svg{position:absolute;inset:0;width:100%;height:100%}
+.ph{position:absolute;top:0;bottom:0;width:2px;background:var(--red);left:calc(var(--p,.4)*100%);box-shadow:0 0 12px var(--red)}
+.ph::before{content:"";position:absolute;top:0;left:-6px;border:7px solid transparent;border-top:9px solid var(--red);border-bottom:0}
+.photo{grid-area:photo;padding:0;background:#151515}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.photo .tag{position:absolute;left:14px;bottom:14px;display:flex;align-items:center;gap:8px;background:#000000aa;backdrop-filter:blur(8px);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:500}
+.photo .tag .dot{width:8px;height:8px;background:#5ee36a;box-shadow:0 0 10px #5ee36a;animation:none}
+
+.work{grid-area:work}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.reel{display:grid;grid-template-columns:minmax(0,76fr) minmax(0,24fr);gap:10px;margin-top:18px;flex:1;align-items:stretch}
+.fr.vert{aspect-ratio:9/16;min-height:0;border:0;padding:0;cursor:pointer;background:#000;font:inherit;color:inherit}
+.fr.vert img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fr.vert:hover img{transform:scale(1.03)}.fr.vert img{transition:transform .3s}
+.vfr{aspect-ratio:16/9}
+#lb{position:fixed;inset:0;z-index:50;background:#000000e0;backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;gap:18px;padding:16px;flex-direction:column}
+#lb.on{display:flex}
+#lb video{height:min(78vh,1000px);max-width:92vw;aspect-ratio:9/16;border-radius:18px;background:#000;box-shadow:0 30px 80px #000}
+#lb .tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+#lb .tabs button{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #ffffff30;background:#ffffff10;color:#fff;font:600 14px Inter,sans-serif;cursor:pointer}
+#lb .tabs button[aria-pressed=true]{background:var(--red);border-color:var(--red)}
+#lbx{position:absolute;top:14px;right:14px;width:48px;height:48px;border-radius:50%;border:1px solid #ffffff30;background:#ffffff12;color:#fff;font-size:22px;cursor:pointer}
+.fr{position:relative;border-radius:14px;overflow:hidden;min-height:170px;display:grid;place-items:center}
+.fr svg{position:absolute;inset:0;width:100%;height:100%}
+.play{position:relative;width:58px;height:58px;border-radius:50%;background:#ffffff22;border:1px solid #ffffff55;display:grid;place-items:center;backdrop-filter:blur(6px)}
+.play::after{content:"";border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:5px}
+.vfr{background:#000}
+.fr video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fr small{position:absolute;left:12px;bottom:10px;font-size:12px;font-weight:600;background:#000000a0;padding:4px 10px;border-radius:999px}
+.fr.vfr small{top:12px;right:12px;left:auto;bottom:auto}
+.soon{font-size:13px;color:var(--soft)}
+
+.stack{grid-area:stack}
+.apps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:auto;padding-top:18px}
+.app{display:flex;align-items:center;gap:12px;padding:10px;border-radius:16px;background:#ffffff08;border:1px solid #ffffff10}
+.ic{width:52px;height:52px;border-radius:13px;display:grid;place-items:center;font:700 21px "Inter",sans-serif;flex:none;letter-spacing:-.02em}
+.app span{font-size:13px;color:#dcd9d4;line-height:1.25}
+
+.mkt{grid-area:mkt;background:radial-gradient(80% 80% at 100% 0%,#3d7bff33,transparent 60%),linear-gradient(155deg,var(--t1),var(--t2))}
+.mkt svg{width:100%;height:70px;margin-top:auto}
+.mlink{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;padding:10px 10px 10px 16px;border-radius:14px;background:#3d7bff;color:#fff;font-weight:600;font-size:14px}
+.mlink:hover{background:#5a8fff}
+.mlink i{width:40px;height:40px;border-radius:50%;background:#fff;color:#3d7bff;display:grid;place-items:center;flex:none}
+.mlink i svg{width:14px;height:14px;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chips span{padding:6px 12px;border-radius:999px;background:#ffffff10;font-size:12px;font-weight:500}
+
+.contact{grid-area:contact;background:var(--red);color:#fff;border:0;justify-content:space-between}
+.contact h2{font-size:clamp(34px,4.4vw,60px);line-height:.95;max-width:9em}
+.contact .lab{color:#ffe1de}
+.lines{display:grid;gap:8px;margin-top:22px}
+.line{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 12px 12px 18px;border-radius:16px;background:#00000026;font-weight:600;font-size:clamp(15px,1.5vw,18px)}
+.line:hover{background:#00000040}
+.line .v{overflow-wrap:anywhere}
+.line i{width:44px;height:44px;border-radius:50%;background:#fff;color:var(--red);display:grid;place-items:center;font-style:normal;flex:none}
+.line i svg{width:16px;height:16px;display:block}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;padding:14px 8px 4px;color:#7d7a75;font-size:13px}
+
+@media(max-width:980px){
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;grid-template-areas:"hero hero" "photo stack" "work work" "mkt contact"}
+.hero{min-height:400px}.photo{min-height:380px}
+}
+@media(max-width:640px){
+.grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"hero" "photo" "work" "stack" "mkt" "contact"}
+.hero{min-height:360px}.photo{min-height:0;aspect-ratio:4/4.6}
+.reel{grid-template-columns:minmax(0,1fr)}.fr.vert{width:min(100%,300px);justify-self:center}
+.frame{border-radius:26px}.inner{border-radius:20px}
+}
+@media(prefers-reduced-motion:reduce){.dot{animation:none}}
+
+.mlink i,.line i{position:relative}
+.mlink i svg,.line i svg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0}
+@keyframes rise{from{opacity:0;transform:translateY(22px) scale(.98)}to{opacity:1;transform:none}}
+.grid>.t{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+.grid>.t:nth-child(2){animation-delay:.08s}.grid>.t:nth-child(3){animation-delay:.16s}.grid>.t:nth-child(4){animation-delay:.24s}.grid>.t:nth-child(5){animation-delay:.32s}.grid>.t:nth-child(6){animation-delay:.4s}
+.t{transform-style:preserve-3d;transition:transform .25s ease,box-shadow .25s ease;will-change:transform}
+.t.hov{box-shadow:0 24px 60px #0008}
+.hero{background:radial-gradient(60% 70% at var(--gx,85%) var(--gy,20%),#ff3b2f55,transparent 60%),radial-gradient(60% 60% at 10% 100%,#ff3b2f22,transparent 70%),linear-gradient(155deg,#242424,#121212)}
+.tl{cursor:ew-resize;touch-action:none}
+.tl:hover .ph{width:3px}
+.tlhint{position:absolute;right:10px;top:8px;font-size:12px;color:#ffffff80;pointer-events:none;transition:opacity .4s}
+.photo .col{filter:none !important;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%;-webkit-mask-image:radial-gradient(circle var(--r,0px) at var(--px,50%) var(--py,40%),#000 60%,transparent 100%);mask-image:radial-gradient(circle var(--r,0px) at var(--px,50%) var(--py,40%),#000 60%,transparent 100%);transition:--r .3s;pointer-events:none}
+.photo.full .col{-webkit-mask-image:none;mask-image:none}
+.photo .hint{position:absolute;right:14px;top:14px;font-size:12px;background:#000000aa;backdrop-filter:blur(8px);padding:6px 12px;border-radius:999px;transition:opacity .4s}
+.app{transition:transform .2s ease,background .2s}
+.apps .app{flex-direction:column;align-items:flex-start;gap:10px;padding:12px 14px 14px}
+.apps .app span{white-space:nowrap;font-size:13.5px;line-height:1.2}
+.app:hover{transform:translateY(-4px);background:#ffffff12}
+.app:hover .ic{transform:rotate(-8deg) scale(1.08)}
+.ic{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.copy{align-self:flex-start;margin-top:10px;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid #ffffff60;background:transparent;color:#fff;font:600 13px Inter,sans-serif;cursor:pointer}
+.copy:hover{background:#ffffff20}
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:#111;color:#fff;border:1px solid #ffffff22;padding:12px 18px;border-radius:999px;font:600 14px Inter,sans-serif;opacity:0;transition:.3s;z-index:60;pointer-events:none}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+.mag{transition:transform .2s ease}
+@media(prefers-reduced-motion:reduce){.grid>.t{animation:none}.t,.mag,.app,.ic{transition:none}}
+</style>
+</head>
+<body>
+<div class="frame"><div class="inner">
+<main class="grid">
+
+  <section class="t hero">
+    <div class="top">
+      <div class="mark">pau<span class="dot" aria-hidden="true"></span></div>
+      <div class="lang" role="group" aria-label="Language">
+        <button id="l-en" type="button" aria-pressed="true">EN</button>
+        <button id="l-es" type="button" aria-pressed="false">ES</button>
+      </div>
+    </div>
+    <div>
+      <div class="recl"><span class="dot"></span>REC <span id="tc">00:00:00:00</span></div>
+      <h1>Pau <em>Guilarte</em></h1>
+      <p class="role"><b data-t="r1">Video editor &amp; motion designer.</b> <span data-t="r2">Marketing student.</span></p>
+    </div>
+    <div class="tl" id="tl" aria-label="Timeline: drag the playhead"><svg id="tls"></svg><div class="ph" id="ph"></div><span class="tlhint" data-t="tlhint">Drag me</span></div>
+  </section>
+
+  <div class="t photo">
+    <img src="pau.jpg" alt="Pau Guilarte Martínez" width="1100" height="1375"><img class="col" src="pau_color.jpg" alt="" aria-hidden="true"><span class="hint" data-t="phint">Move to reveal colour</span>
+    <div class="tag"><span class="dot"></span><span data-t="av">Available for projects</span></div>
+  </div>
+
+  <section class="t work" id="work">
+    <div class="head">
+      <div><span class="lab" data-t="wL">Works</span><h2 data-t="wT">Video &amp; motion</h2></div>
+      <span class="soon" data-t="soon">Tap the podcast to watch</span>
+    </div>
+    <div class="reel">
+      <div class="fr vfr"><video src="motion.mp4" poster="motion.jpg" autoplay muted loop playsinline controls preload="metadata"></video><small>Motion graphics</small></div>
+      <button class="fr vert" id="openPod" type="button" aria-label="Podcast before and after"><img src="podcast_compare.jpg" alt=""><div class="play"></div><small data-t="pod">Podcast · Before / After</small></button>
+    </div>
+  </section>
+
+  <section class="t stack">
+    <span class="lab" data-t="sL">Tools I use</span>
+    <h2>My daily stack</h2>
+    <div class="apps">
+      <div class="app"><div class="ic" style="background:#00005b;color:#d291ff;box-shadow:inset 0 0 0 2px #d291ff">Ae</div><span>After Effects</span></div>
+      <div class="app"><div class="ic" style="background:#00005b;color:#9999ff;box-shadow:inset 0 0 0 2px #9999ff">Pr</div><span>Premiere Pro</span></div>
+      <div class="app"><div class="ic" style="background:#001e36;color:#31a8ff;box-shadow:inset 0 0 0 2px #31a8ff">Ps</div><span>Photoshop</span></div>
+      <div class="app"><div class="ic" style="background:linear-gradient(135deg,#00c4cc,#7d2ae8);color:#fff">Ca</div><span>Canva</span></div>
+    </div>
+  </section>
+
+  <section class="t mkt">
+    <span class="lab" data-t="mL">Digital marketing</span>
+    <h2 data-t="mT">Content that connects</h2>
+    <div class="chips" id="chips"></div>
+    <a class="mlink" id="mlink" href="#contact"><span data-t="mB">See my marketing portfolio</span><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 12 4M5 4h7v7"/></svg></i></a>
+    <svg viewBox="0 0 300 80" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="mg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d7bff" stop-opacity=".5"/><stop offset="1" stop-color="#3d7bff" stop-opacity="0"/></linearGradient></defs><path d="M0 70 C40 66 60 50 100 54 S160 30 200 34 S260 10 300 6 V80 H0Z" fill="url(#mg)"/><path d="M0 70 C40 66 60 50 100 54 S160 30 200 34 S260 10 300 6" fill="none" stroke="#6f9bff" stroke-width="3" vector-effect="non-scaling-stroke"/></svg>
+  </section>
+
+  <section class="t contact" id="contact">
+    <div><span class="lab" data-t="cL">Say hello</span><h2 data-t="cT">Let's work together</h2></div>
+    <div class="lines">
+      <a class="line" href="mailto:pauguilarte12@gmail.com"><span class="v">pauguilarte12@gmail.com</span><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 12 4M5 4h7v7"/></svg></i></a>
+      <a class="line" href="tel:+34669696695"><span class="v">+34 669 69 66 95</span><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 12 4M5 4h7v7"/></svg></i></a>
+      <button class="copy" id="copyMail" type="button" data-t="copy">Copy email</button>
+    </div>
+  </section>
+
+</main>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Podcast edits"><button id="lbx" type="button" aria-label="Close">×</button>
+<video id="lbv" controls playsinline preload="metadata"></video>
+<div class="tabs"><button type="button" data-v="podcast_compare" aria-pressed="true" data-t="tb1">Before / After</button><button type="button" data-v="short_ansiedad" aria-pressed="false" data-t="tb2">Short · Anxiety</button><button type="button" data-v="short_etapa" aria-pressed="false" data-t="tb3">Short · Stages</button></div></div>
+<footer><span>© 2026 Pau Guilarte Martínez</span><span>pau●</span></footer>
+</div></div>
+
+<script>
+{
+const T={
+en:{r1:"Video editor & motion designer.",r2:"Marketing student.",av:"Available for projects",wL:"Works",wT:"Video & motion",soon:"Tap the podcast to watch",pod:"Podcast · Before / After",phint:"Move to reveal colour",tlhint:"Drag me",copy:"Copy email",copied:"Email copied",tb1:"Before / After",tb2:"Short · Anxiety",tb3:"Short · Stages",
+sL:"Tools I use",mL:"Digital marketing",mT:"Content that connects",cL:"Say hello",cT:"Let's work together",mB:"See my marketing portfolio",chips:["Social media","Content","Ads"]},
+es:{r1:"Editor de vídeo y motion designer.",r2:"Estudiante de marketing.",av:"Disponible para proyectos",wL:"Trabajos",wT:"Vídeo y motion",soon:"Toca el podcast para verlo",pod:"Podcast · Antes / Después",phint:"Pasa el ratón para ver el color",tlhint:"Arrástrame",copy:"Copiar email",copied:"Email copiado",tb1:"Antes / Después",tb2:"Short · Ansiedad",tb3:"Short · Etapas",
+sL:"Herramientas",mL:"Marketing digital",mT:"Contenido que conecta",cL:"Hablemos",cT:"Trabajemos juntos",mB:"Ver mi portfolio de marketing",chips:["Redes sociales","Contenido","Ads"]}
+};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function setLang(l){
+  const d=T[l];document.documentElement.lang=l;
+  document.querySelectorAll("[data-t]").forEach(e=>{const v=d[e.dataset.t];if(v!=null)e.textContent=v;});
+  document.getElementById("chips").innerHTML=d.chips.map(c=>`<span>${esc(c)}</span>`).join("");
+  document.getElementById("l-en").setAttribute("aria-pressed",l=="en");
+  document.getElementById("l-es").setAttribute("aria-pressed",l=="es");
+  try{localStorage.setItem("pau-lang",l)}catch(e){}
+}
+document.getElementById("l-en").addEventListener("click",()=>setLang("en"));
+document.getElementById("l-es").addEventListener("click",()=>setLang("es"));
+let saved=null;try{saved=localStorage.getItem("pau-lang")}catch(e){}
+if(location.hash=="#es")saved="es";
+setLang(saved=="es"?"es":"en");
+const tl=document.getElementById("tl"),tls=document.getElementById("tls");
+const clips=[[0,.0,.18,"#3a3a3a"],[0,.18,.42,"#ff3b2f"],[0,.42,.6,"#4a4a4a"],[0,.6,.86,"#ff3b2f"],[0,.86,1,"#3a3a3a"],[1,.06,.38,"#9b6bff"],[1,.55,.8,"#3d7bff"]];
+function drawTl(){const W=tl.clientWidth,H=tl.clientHeight,rh=(H-16)/3;let o="";let sd=11;const rn=()=>(sd=sd*16807%2147483647)/2147483647;
+ for(let x=0;x<W;x+=W/40)o+=`<line x1="${x}" x2="${x}" y1="0" y2="6" stroke="#ffffff30"/>`;
+ clips.forEach(([r,a,b,c])=>{o+=`<rect x="${a*W+2}" y="${10+r*rh+2}" width="${(b-a)*W-4}" height="${rh-4}" rx="5" fill="${c}" opacity="${r?0.55:0.85}"/>`;});
+ const y=10+2*rh+rh/2;for(let x=4;x<W-4;x+=5){const a=(.2+rn()*.8)*(rh/2-3);o+=`<rect x="${x}" y="${y-a}" width="2.5" height="${a*2}" fill="#ffffff" opacity=".5"/>`;}
+ tls.innerHTML=o;}
+const tlro=new ResizeObserver(drawTl);tlro.observe(tl);
+const ph=document.getElementById("ph"),tc=document.getElementById("tc");
+const show=p=>{ph.style.setProperty("--p",p);const f=Math.floor(p*30*25),sec=Math.floor(f/25);tc.textContent=`00:00:${String(sec).padStart(2,"0")}:${String(f%25).padStart(2,"0")}`;};
+let scrubbing=false,hold=0,pcur=.4;const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const show2=p=>{pcur=p;show(p)};
+if(RM)show2(.4);else{let last=performance.now();const step=t=>{const dt=t-last;last=t;if(!scrubbing&&t>hold){show2((pcur+dt/16000)%1)}requestAnimationFrame(step)};requestAnimationFrame(step);}
+const setP=e=>{const r=tl.getBoundingClientRect();show2(Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)))};
+tl.addEventListener("pointerdown",e=>{scrubbing=true;tl.setPointerCapture(e.pointerId);setP(e);tl.querySelector(".tlhint").style.opacity=0});
+tl.addEventListener("pointermove",e=>{if(scrubbing)setP(e)});
+const endS=()=>{scrubbing=false;hold=performance.now()+1500};tl.addEventListener("pointerup",endS);tl.addEventListener("pointercancel",endS);
+const lbEl=document.getElementById("lb"),lbv=document.getElementById("lbv");
+function openV(v){lbv.src=v+".mp4";lbv.poster=v+".jpg";lbEl.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v==v));const pr=lbv.play();if(pr&&pr.catch)pr.catch(()=>{})}
+document.getElementById("openPod").addEventListener("click",()=>{lbEl.classList.add("on");openV("podcast_compare")});
+lbEl.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>openV(b.dataset.v)));
+const closeLb=()=>{lbv.pause();lbEl.classList.remove("on")};
+document.getElementById("lbx").addEventListener("click",closeLb);
+lbEl.addEventListener("click",e=>{if(e.target===lbEl)closeLb()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLb()});
+const fine=matchMedia("(hover: hover) and (pointer: fine)").matches&&!matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(fine){document.querySelectorAll(".grid>.t").forEach(el=>{
+  el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;el.style.setProperty("--mx",x*100+"%");el.style.setProperty("--my",y*100+"%");if(!el.classList.contains("photo")||true)el.style.transform=`perspective(1000px) rotateX(${(.5-y)*4}deg) rotateY(${(x-.5)*5}deg)`;el.classList.add("hov")});
+  el.addEventListener("pointerleave",()=>{el.style.transform="";el.classList.remove("hov")});});
+}
+const ph_=document.querySelector(".photo");
+ph_.addEventListener("pointermove",e=>{const r=ph_.getBoundingClientRect();ph_.style.setProperty("--px",(e.clientX-r.left)+"px");ph_.style.setProperty("--py",(e.clientY-r.top)+"px");ph_.style.setProperty("--r","125px");const h=ph_.querySelector(".hint");if(h)h.style.opacity=0});
+ph_.addEventListener("pointerleave",()=>ph_.style.setProperty("--r","0px"));
+ph_.addEventListener("click",()=>ph_.classList.toggle("full"));
+const toast=document.getElementById("toast");let tt_;const say=m=>{toast.textContent=m;toast.classList.add("on");clearTimeout(tt_);tt_=setTimeout(()=>toast.classList.remove("on"),1800)};
+document.getElementById("copyMail").addEventListener("click",async()=>{const L=document.documentElement.lang=="es"?"es":"en";try{await navigator.clipboard.writeText("pauguilarte12@gmail.com");say(T[L].copied)}catch(e){say("pauguilarte12@gmail.com")}});
+}
+</script>
+<div id="toast" role="status"></div>
+</body>
+</html>
