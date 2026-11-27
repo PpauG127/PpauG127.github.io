@@ -65,6 +65,23 @@ h1 em{font-style:italic;background:linear-gradient(90deg,#fff 30%,#ffb3ad);-webk
 #lb .tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 #lb .tabs button{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #ffffff30;background:#ffffff10;color:#fff;font:600 14px Inter,sans-serif;cursor:pointer}
 #lb .tabs button[aria-pressed=true]{background:var(--red);border-color:var(--red)}
+#lb{align-items:stretch;justify-content:flex-start;overflow-y:auto;padding:72px 20px 40px}
+#lb .gh{max-width:1100px;width:100%;margin:0 auto 18px;display:flex;align-items:baseline;gap:12px;color:#fff}
+#lb .gh h2{font:400 clamp(34px,5vw,56px)/1 "Instrument Serif",serif;margin:0}
+#lb .gh span{font:600 13px Inter,sans-serif;color:#ffffff80}
+#grid{max-width:1100px;width:100%;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+#grid button{position:relative;aspect-ratio:9/16;border:0;padding:0;border-radius:16px;overflow:hidden;background:#111;cursor:pointer;color:#fff;text-align:left;transition:transform .2s}
+#grid button:hover,#grid button:focus-visible{transform:translateY(-3px)}
+#grid img{width:100%;height:100%;object-fit:cover;display:block}
+#grid button::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,#000c)}
+#grid .tg{position:absolute;top:10px;left:10px;z-index:1;font:700 11px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:#000a}
+#grid .tg.g{background:var(--red)}
+#grid b{position:absolute;left:12px;right:12px;bottom:12px;z-index:1;font:700 15px/1.2 Inter,sans-serif}
+#grid i{position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px;border-radius:50%;background:#fff2;backdrop-filter:blur(6px);z-index:1}
+#grid i::before{content:"";position:absolute;left:18px;top:14px;border-left:13px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent}
+#pl{display:none;flex-direction:column;align-items:center;gap:14px;margin:auto}
+#lb.vid #pl{display:flex}#lb.vid .gv{display:none}
+#lbback{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid #ffffff30;background:#ffffff10;color:#fff;font:600 14px Inter,sans-serif;cursor:pointer}
 #lbx{position:absolute;top:14px;right:14px;width:48px;height:48px;border-radius:50%;border:1px solid #ffffff30;background:#ffffff12;color:#fff;font-size:22px;cursor:pointer}
 .fr{position:relative;border-radius:14px;overflow:hidden;min-height:170px;display:grid;place-items:center}
 .fr svg{position:absolute;inset:0;width:100%;height:100%}
@@ -170,7 +187,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;pa
   <section class="t work" id="work">
     <div class="head">
       <div><span class="lab" data-t="wL">Works</span><h2 data-t="wT">Video &amp; motion</h2></div>
-      <span class="soon" data-t="soon">Tap the podcast to watch</span>
+      <span class="soon" data-t="soon">Tap to see all my shorts</span>
     </div>
     <div class="reel">
       <div class="fr vfr"><video src="motion.mp4" poster="motion.jpg" autoplay muted loop playsinline controls preload="metadata"></video><small>Motion graphics</small></div>
@@ -208,17 +225,16 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;pa
 
 </main>
 <div id="lb" role="dialog" aria-modal="true" aria-label="Podcast edits"><button id="lbx" type="button" aria-label="Close">×</button>
-<video id="lbv" controls playsinline preload="metadata"></video>
-<div class="tabs" style="flex-wrap:wrap;justify-content:center;max-width:min(92vw,720px)"><button type="button" data-v="podcast_compare" aria-pressed="true" data-t="tb1">Before / After</button><button type="button" data-v="short_ansiedad" aria-pressed="false" data-t="tb2">Short · Anxiety</button><button type="button" data-v="short_etapa" aria-pressed="false" data-t="tb3">Short · Stages</button><button type="button" data-v="g_adin_clips" aria-pressed="false">Adin Ross · 1</button><button type="button" data-v="g_adin_mrbeast" aria-pressed="false">Adin Ross · 2</button><button type="button" data-v="g_ibai_peso" aria-pressed="false">Ibai · 1</button><button type="button" data-v="g_ibai_twitch" aria-pressed="false">Ibai · 2</button><button type="button" data-v="g_gta6_criticas" aria-pressed="false">GTA VI · 1</button><button type="button" data-v="g_gta6_detalles" aria-pressed="false">GTA VI · 2</button></div></div>
+<div class="gv"><div class="gh"><h2 data-t="gT">All edits</h2><span data-t="gS">Tap a short to watch</span></div><div id="grid"></div></div><div id="pl"><video id="lbv" controls playsinline preload="metadata"></video><button id="lbback" type="button" data-t="back">← All edits</button></div></div>
 <footer><span>© 2026 Pau Guilarte Martínez</span><span>pau●</span></footer>
 </div></div>
 
 <script>
 {
 const T={
-en:{r1:"Video editor & motion designer with 3 years of experience.",r2:"Marketing student.",av:"Available for projects",wL:"Works",wT:"Video & motion",soon:"Tap the podcast to watch",pod:"Podcast · Before / After",phint:"Move to reveal colour",tlhint:"Drag me",copy:"Copy email",copied:"Email copied",tb1:"Before / After",tb2:"Short · Anxiety",tb3:"Short · Stages",
+en:{r1:"Video editor & motion designer with 3 years of experience.",r2:"Marketing student.",av:"Available for projects",wL:"Works",wT:"Video & motion",soon:"Tap to see all my shorts",pod:"Podcast · Before / After",phint:"Move to reveal colour",tlhint:"Drag me",copy:"Copy email",copied:"Email copied",tb1:"Before / After",tb2:"Short · Anxiety",tb3:"Short · Stages",gT:"All edits",gS:"Tap a short to watch",back:"← All edits",
 sL:"Tools I use",mL:"Digital marketing",mT:"Content that connects",cL:"Say hello",cT:"Let's work together",mB:"See my marketing portfolio",chips:["Social media","Content","Ads"]},
-es:{r1:"Editor de vídeo y motion designer con 3 años de experiencia.",r2:"Estudiante de marketing.",av:"Disponible para proyectos",wL:"Trabajos",wT:"Vídeo y motion",soon:"Toca el podcast para verlo",pod:"Podcast · Antes / Después",phint:"Pasa el ratón para ver el color",tlhint:"Arrástrame",copy:"Copiar email",copied:"Email copiado",tb1:"Antes / Después",tb2:"Short · Ansiedad",tb3:"Short · Etapas",
+es:{r1:"Editor de vídeo y motion designer con 3 años de experiencia.",r2:"Estudiante de marketing.",av:"Disponible para proyectos",wL:"Trabajos",wT:"Vídeo y motion",soon:"Toca para ver todos mis shorts",pod:"Podcast · Antes / Después",phint:"Pasa el ratón para ver el color",tlhint:"Arrástrame",copy:"Copiar email",copied:"Email copiado",tb1:"Antes / Después",tb2:"Short · Ansiedad",tb3:"Short · Etapas",gT:"Todas las ediciones",gS:"Toca un short para verlo",back:"← Todas las ediciones",
 sL:"Herramientas",mL:"Marketing digital",mT:"Contenido que conecta",cL:"Hablemos",cT:"Trabajemos juntos",mB:"Ver mi portfolio de marketing",chips:["Redes sociales","Contenido","Ads"]}
 };
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -251,13 +267,18 @@ tl.addEventListener("pointerdown",e=>{scrubbing=true;tl.setPointerCapture(e.poin
 tl.addEventListener("pointermove",e=>{if(scrubbing)setP(e)});
 const endS=()=>{scrubbing=false;hold=performance.now()+1500};tl.addEventListener("pointerup",endS);tl.addEventListener("pointercancel",endS);
 const lbEl=document.getElementById("lb"),lbv=document.getElementById("lbv");
-function openV(v){lbv.src=v+".mp4";lbv.poster=v+".jpg";lbEl.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v==v));const pr=lbv.play();if(pr&&pr.catch)pr.catch(()=>{})}
-document.getElementById("openPod").addEventListener("click",()=>{lbEl.classList.add("on");openV("podcast_compare")});
-lbEl.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>openV(b.dataset.v)));
-const closeLb=()=>{lbv.pause();lbEl.classList.remove("on")};
+const V=[["podcast_compare","Podcast","Before / After"],["short_ansiedad","Podcast","Anxiety"],["short_etapa","Podcast","Stages"],["g_adin_clips","Gaming","Adin Ross"],["g_adin_mrbeast","Gaming","Adin Ross × MrBeast"],["g_ibai_peso","Gaming","Ibai"],["g_ibai_twitch","Gaming","Ibai · Twitch"],["g_gta6_criticas","Gaming","GTA VI"],["g_gta6_detalles","Gaming","GTA VI · Details"]];
+const grid=document.getElementById("grid");
+grid.innerHTML=V.map(([v,c,t])=>`<button type="button" data-v="${v}"><img src="${v}.jpg" alt="" loading="lazy"><span class="tg${c=="Gaming"?" g":""}">${c}</span><i></i><b>${esc(t)}</b></button>`).join("");
+function openV(v){lbEl.classList.add("vid");lbEl.scrollTop=0;lbv.src=v+".mp4";lbv.poster=v+".jpg";const pr=lbv.play();if(pr&&pr.catch)pr.catch(()=>{})}
+const toGrid=()=>{lbv.pause();lbv.removeAttribute("src");lbv.load();lbEl.classList.remove("vid")};
+grid.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>openV(b.dataset.v)));
+document.getElementById("lbback").addEventListener("click",toGrid);
+document.getElementById("openPod").addEventListener("click",()=>{toGrid();lbEl.classList.add("on");document.body.style.overflow="hidden"});
+const closeLb=()=>{toGrid();lbEl.classList.remove("on");document.body.style.overflow=""};
 document.getElementById("lbx").addEventListener("click",closeLb);
-lbEl.addEventListener("click",e=>{if(e.target===lbEl)closeLb()});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLb()});
+lbEl.addEventListener("click",e=>{if(e.target===lbEl||e.target.classList.contains("gv"))closeLb()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){lbEl.classList.contains("vid")?toGrid():closeLb()}});
 const fine=matchMedia("(hover: hover) and (pointer: fine)").matches&&!matchMedia("(prefers-reduced-motion: reduce)").matches;
 if(fine){document.querySelectorAll(".grid>.t").forEach(el=>{
   el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;el.style.setProperty("--mx",x*100+"%");el.style.setProperty("--my",y*100+"%");if(!el.classList.contains("photo")||true)el.style.transform=`perspective(1000px) rotateX(${(.5-y)*4}deg) rotateY(${(x-.5)*5}deg)`;el.classList.add("hov")});
